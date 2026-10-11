@@ -8,7 +8,10 @@
   "screen.auctionstreamermod.duration_label": "Auction duration (1-3600 seconds)",
   "screen.auctionstreamermod.minimum_payment_label": "Minimum counted payment",
   "screen.auctionstreamermod.regex_label": "Chat regex (group 1 = amount, group 2 = player)",
-  "screen.auctionstreamermod.toggle_hint": "Click to toggle settings",
+  "screen.auctionstreamermod.toggle_hint": "Click a setting to toggle it",
   "screen.auctionstreamermod.save": "Save",
-  "screen.auctionstreamermod.cancel": "Cancel"
+  "screen.auctionstreamermod.close": "Close",
+  "screen.auctionstreamermod.start_auction": "Start",
+  "screen.auctionstreamermod.stop_auction": "Stop",
+  "screen.auctionstreamermod.reset_auction": "Reset"
 }
