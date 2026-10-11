@@ -2,14 +2,21 @@
 
 A **client-side Fabric mod** for Minecraft Java Edition that runs timed streamer auctions and counts payment-confirmation messages in chat.
 
-## Current target
+## Download
 
-- Minecraft Java Edition **1.21.1**
-- Fabric Loader
-- Java 21
-- Fabric API
+**Minecraft Java Edition 1.21.11**
 
-You said you were unsure which Minecraft version you use, so this first version targets 1.21.1 as a starting point. The mod will need a version update if your game uses a different release.
+[![Download for Minecraft 1.21.11](https://img.shields.io/badge/Download-Minecraft%201.21.11-blue?style=for-the-badge)](https://github.com/antonfischle5/auction-streamer-mod/releases/latest/download/auction-streamer-mod-1.21.11.jar)
+
+Click the download button to download the mod .jar file. You need Minecraft Java Edition **1.21.11**, Fabric Loader, Fabric API, and Java 21. The button will work after the first successful automatic build and release completes.
+
+## Installation
+
+1. Download the .jar file using the button above.
+2. Make sure Minecraft Java **1.21.11** and Fabric Loader are installed.
+3. Install Fabric API for Minecraft 1.21.11.
+4. Put the downloaded .jar file into your Minecraft mods folder.
+5. Start the Fabric profile in the Minecraft Launcher.
 
 ## Features
 
@@ -22,14 +29,13 @@ You said you were unsure which Minecraft version you use, so this first version 
 - Counts matching chat confirmations only while an auction is active by default
 - Totals grouped by payer/player name
 - End summary and bidder totals in local chat
-- Config file for duration, minimum payment, HUD visibility and a server-specific payment-message regex
 
 ## Settings GUI and keybind
 
 - Press **O** by default to open the settings screen.
-- Change the key under **Options → Controls → Key Binds → Auction Streamer Mod → Open Auction Settings**. Minecraft lets you assign another key there.
+- Change the key under **Options → Controls → Key Binds → Auction Streamer Mod → Open Auction Settings**.
 - In the GUI you can configure auction duration (1–3600 seconds), minimum payment, the payment-message regex, HUD visibility, start/end announcements and whether payments are counted only during an active auction.
-- Click **Save** to store the settings in `config/auction-streamer-mod.json`; invalid numbers or regex patterns are rejected.
+- Click **Save** to store the settings in config/auction-streamer-mod.json; invalid numbers or regex patterns are rejected.
 
 ## Use the mod without commands
 
@@ -39,40 +45,27 @@ The mod does not send payment commands or move money. It only reads payment-conf
 
 ## Configure payment detection
 
-Launch the game once with the mod. It creates:
+Launch the game once with the mod. It creates config/auction-streamer-mod.json.
 
-`config/auction-streamer-mod.json`
+The default regex is configured for the HugoSMP-style message: "Du hast $1 von .FPAnton erhalten." Regex capture groups must be:
+1. **Group 1:** amount
+2. **Group 2:** payer/player name (including dots)
 
-The default regex is only an example and will not match every server. Change `paymentRegex` to the exact confirmation format your server prints.
-
-Regex capture groups must be:
-1. **Group 1:** amount (digits, optionally with separators)
-2. **Group 2:** payer/player name
-
-For example, if the server prints `You received 250 coins from Steve`, this pattern matches it:
-
-```regex
-(?i).*?(?:received|got|erhalten|bekommen)\s+\$?([0-9][0-9,._]*)\s*(?:coins?|dollars?|geld)?\s+(?:from|von)\s+([A-Za-z0-9_]{1,16}).*
-```
-
-If your server uses a different message (for example `Steve paid you $250`), change the regex to match that exact format and keep the amount in group 1 and the payer in group 2. Test carefully: a too-broad pattern could count unrelated messages. This mod cannot inspect server-side economy transactions that never appear in your chat.
+If your server uses a different message, change the regex in the GUI. Test carefully: a too-broad pattern could count unrelated messages. This mod cannot inspect server-side economy transactions that never appear in your chat.
 
 ## Build
 
-Install JDK 21 and Gradle, clone the repository, then run:
+The repository includes a GitHub Actions workflow that builds the mod for Minecraft 1.21.11 and publishes the JAR as a GitHub Release whenever changes are pushed to main.
 
-- Windows: `gradle build`
-- macOS/Linux: `gradle build`
-
-The mod jar will be in `build/libs/`.
+For manual builds, use JDK 21 and Gradle 8.14.3, then run gradle build. The JAR is generated in build/libs/.
 
 ## Important limitations
 
-- This is a client-only first version; it cannot verify payments against the server economy database.
+- This is a client-only mod; it cannot verify payments against the server economy database.
 - Payment detection depends on the exact chat confirmation text and your regex configuration.
 - The displayed item name is captured when you aim at an item frame and start the auction; it does not lock the item or prevent anyone from changing it.
-- The mod has not yet been tested against your specific server or Minecraft installation.
+- A download is published only when the automated build succeeds.
 
 ## Restore point
 
-The previous repository state is preserved on the branch `backup-before-emptying-2026-10-11`.
+The previous repository state is preserved on the branch backup-before-emptying-2026-10-11.
