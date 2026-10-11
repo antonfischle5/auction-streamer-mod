@@ -25,9 +25,10 @@ public final class AuctionConfig {
      *   group 1 = payment amount
      *   group 2 = payer/player name
      *
-     * Adjust this to match the exact confirmation message your server prints.
+     * Supports HugoSMP messages such as:
+     * "Du hast $1 von .FPAnton erhalten."
      */
-    public String paymentRegex = "(?i).*?(?:received|got|erhalten|bekommen)\\s+\\$?([0-9][0-9,._]*)\\s*(?:coins?|dollars?|geld)?\\s+(?:from|von)\\s+([A-Za-z0-9_]{1,16}).*";
+    public String paymentRegex = "(?i).*?hast\\s+\\$?([0-9][0-9,._]*)\\s+von\\s+([A-Za-z0-9_.]{1,32})\\s+erhalten.*";
 
     private AuctionConfig() {}
 
