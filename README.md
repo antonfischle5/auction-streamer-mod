@@ -13,6 +13,8 @@ You said you were unsure which Minecraft version you use, so this first version 
 
 ## Features
 
+- Open an in-game settings GUI with a configurable keybind (default: **O**)
+- Change the auction duration, minimum payment, payment chat regex, HUD, announcements and active-auction-only counting in the GUI
 - Start a timed auction (default: 60 seconds)
 - Aim at an item frame holding an item before starting to use that item's name in the auction summary
 - HUD with remaining time, item name, total counted and payment count
@@ -20,6 +22,13 @@ You said you were unsure which Minecraft version you use, so this first version 
 - Totals grouped by payer/player name
 - End summary and bidder totals in local chat
 - Config file for duration, minimum payment, HUD visibility and a server-specific payment-message regex
+
+## Settings GUI and keybind
+
+- Press **O** by default to open the settings screen.
+- Change the key under **Options → Controls → Key Binds → Auction Streamer Mod → Open Auction Settings**. Minecraft lets you assign another key there.
+- In the GUI you can configure auction duration (1–3600 seconds), minimum payment, the payment-message regex, HUD visibility, start/end announcements and whether payments are counted only during an active auction.
+- Click **Save** to store the settings in `config/auction-streamer-mod.json`; invalid numbers or regex patterns are rejected.
 
 ## Commands
 
