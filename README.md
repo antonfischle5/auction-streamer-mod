@@ -15,6 +15,7 @@ You said you were unsure which Minecraft version you use, so this first version 
 
 - Open an in-game settings GUI with a configurable keybind (default: **O**)
 - Change the auction duration, minimum payment, payment chat regex, HUD, announcements and active-auction-only counting in the GUI
+- Start, stop and reset auctions directly in the GUI—no commands required
 - Start a timed auction (default: 60 seconds)
 - Aim at an item frame holding an item before starting to use that item's name in the auction summary
 - HUD with remaining time, item name, total counted and payment count
@@ -30,16 +31,11 @@ You said you were unsure which Minecraft version you use, so this first version 
 - In the GUI you can configure auction duration (1–3600 seconds), minimum payment, the payment-message regex, HUD visibility, start/end announcements and whether payments are counted only during an active auction.
 - Click **Save** to store the settings in `config/auction-streamer-mod.json`; invalid numbers or regex patterns are rejected.
 
-## Commands
+## Use the mod without commands
 
-- `/auction start` — start using the configured duration
-- `/auction start 120` — start a 120-second auction
-- `/auction stop` — end the auction and show results
-- `/auction status` — show the current state
-- `/auction reset` — clear the current auction data
-- `/auction reload` — reload the config file
+Open the GUI with the configurable keybind (default: **O**). Use the **Start**, **Stop** and **Reset** buttons in the same window to control auctions. The Start button uses the configured duration and the item in the item frame you are looking at. No chat commands are registered by this mod.
 
-These are **client-side commands** and the mod does not send payment commands or move money. It only reads chat messages visible to your Minecraft client.
+The mod does not send payment commands or move money. It only reads payment-confirmation messages visible to your Minecraft client.
 
 ## Configure payment detection
 
