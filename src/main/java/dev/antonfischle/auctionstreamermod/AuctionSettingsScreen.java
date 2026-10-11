@@ -82,8 +82,7 @@ public final class AuctionSettingsScreen extends Screen {
         int actionWidth = Math.min(118, (this.width - 28 - actionGap * 2) / 3);
         int actionLeft = (this.width - (actionWidth * 3 + actionGap * 2)) / 2;
         addDrawableChild(ButtonWidget.builder(Text.translatable("screen.auctionstreamermod.start_auction"), button -> {
-            saveSettings(false);
-            if (client != null) {
+            if (saveSettings(false) && client != null) {
                 AuctionManager.start(AuctionConfig.INSTANCE.durationSeconds, AuctionStreamerMod.findItemFrameName());
             }
         }).dimensions(actionLeft, 238, actionWidth, 20).build());
@@ -118,20 +117,20 @@ public final class AuctionSettingsScreen extends Screen {
         saveSettings(true);
     }
 
-    private void saveSettings(boolean closeAfterSave) {
+    private boolean saveSettings(boolean closeAfterSave) {
         try {
             int duration = Integer.parseInt(durationField.getText().trim());
             long minimumPayment = Long.parseLong(minimumPaymentField.getText().trim());
             if (duration < 1 || duration > 3600 || minimumPayment < 0) {
                 showError("Duration must be 1-3600 seconds; minimum payment must be 0 or more.");
-                return;
+                return false;
             }
 
             String regex = paymentRegexField.getText();
             Pattern compiled = Pattern.compile(regex);
             if (compiled.matcher("").groupCount() < 2) {
                 showError("The payment regex needs at least two capture groups.");
-                return;
+                return false;
             }
 
             AuctionConfig.INSTANCE.durationSeconds = duration;
@@ -145,10 +144,13 @@ public final class AuctionSettingsScreen extends Screen {
                 AuctionStreamerMod.localMessage("Settings saved.");
                 close();
             }
+            return true;
         } catch (NumberFormatException exception) {
             showError("Enter valid numbers for duration and minimum payment.");
+            return false;
         } catch (PatternSyntaxException exception) {
             showError("The payment regex is invalid: " + exception.getDescription());
+            return false;
         }
     }
 
