@@ -10,5 +10,8 @@
   "screen.auctionstreamermod.regex_label": "Chat-Regex (Gruppe 1 = Betrag, Gruppe 2 = Spieler)",
   "screen.auctionstreamermod.toggle_hint": "Klicke auf eine Option, um sie umzuschalten",
   "screen.auctionstreamermod.save": "Speichern",
-  "screen.auctionstreamermod.cancel": "Abbrechen"
+  "screen.auctionstreamermod.close": "Schließen",
+  "screen.auctionstreamermod.start_auction": "Starten",
+  "screen.auctionstreamermod.stop_auction": "Beenden",
+  "screen.auctionstreamermod.reset_auction": "Zurücksetzen"
 }
