@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "auctionstreamermod",
+  "version": "${version}",
+  "name": "Auction Streamer Mod",
+  "description": "Timed streamer auctions that count payment confirmations from chat.",
+  "authors": ["antonfischle5"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.antonfischle.auctionstreamermod.AuctionStreamerMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
