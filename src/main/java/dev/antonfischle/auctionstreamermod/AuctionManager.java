@@ -21,7 +21,7 @@ public final class AuctionManager {
 
     public static void start(int seconds, String item) {
         if (active) {
-            AuctionStreamerMod.localMessage("An auction is already running. Use /auction stop first.");
+            AuctionStreamerMod.localMessage("An auction is already running. Stop it using the GUI first.");
             return;
         }
         int duration = Math.max(1, Math.min(3600, seconds));
