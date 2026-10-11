@@ -1,0 +1,14 @@
+{
+  "key.auctionstreamermod.open_settings": "Open Auction Settings",
+  "category.auctionstreamermod": "Auction Streamer Mod",
+  "screen.auctionstreamermod.settings": "Auction Streamer Settings",
+  "screen.auctionstreamermod.duration": "Auction duration",
+  "screen.auctionstreamermod.minimum_payment": "Minimum payment",
+  "screen.auctionstreamermod.payment_regex": "Payment chat pattern",
+  "screen.auctionstreamermod.duration_label": "Auction duration (1-3600 seconds)",
+  "screen.auctionstreamermod.minimum_payment_label": "Minimum counted payment",
+  "screen.auctionstreamermod.regex_label": "Chat regex (group 1 = amount, group 2 = player)",
+  "screen.auctionstreamermod.toggle_hint": "Click to toggle settings",
+  "screen.auctionstreamermod.save": "Save",
+  "screen.auctionstreamermod.cancel": "Cancel"
+}
